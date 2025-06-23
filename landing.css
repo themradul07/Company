@@ -677,8 +677,6 @@ footer .footer-container {
 
 }
 
-.click-change>div {}
-
 .option {
     display: flex;
     justify-content: space-between;
@@ -739,66 +737,14 @@ footer .footer-container {
 
 .toggle {
     width: 100%;
-    /* padding: 12px 16px; */
-    /* background: #f1f1f1; */
-    border: none;
-    /* display: flex; */
-    /* justify-content: space-between; */
-    /* align-items: center; */
-    /* font-weight: 600; */
+    border: none;    
     cursor: pointer;
     transition: background 0.3s
 }
-
-
-.toggle:hover {}
 
 .g10 {
     gap: 20px;
 }
-
-
-.accordion-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px
-}
-
-.accordion-container {
-    flex: 1;
-    max-width: 500px
-}
-
-.accordion {
-    display: flex;
-    flex-direction: column;
-    gap: 16px
-}
-
-.item {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-    background: #fff
-}
-
-.header {
-    margin: 0
-}
-
-/* .toggle {
-    width: 100%;
-    padding: 12px 16px;
-    background: #f1f1f1;
-    border: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s
-} */
-
 
 .label {
     display: flex;
@@ -814,9 +760,6 @@ footer .footer-container {
     font-size: 1.2rem;
     transition: transform 0.3s
 }
-
-
-
 
 .body {
     display: flex;
@@ -845,34 +788,8 @@ footer .footer-container {
     display: none;
 }
 
-/* Next & previous buttons */
-.prev,
-.next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-}
 
 /* Position the "next button" to the right */
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
 
 /* Caption text */
 .text {

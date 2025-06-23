@@ -1,71 +1,53 @@
-
-window.addEventListener('scroll', function () {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
+// Navbar scroll effect
+$(window).on('scroll', function () {
+    if ($(this).scrollTop() > 50) {
+        $('nav').addClass('scrolled');
     } else {
-        nav.classList.remove('scrolled');
+        $('nav').removeClass('scrolled');
     }
 });
 
-
-
+// Slideshow
 let slideIndex = 0;
-showSlides();
-
 function showSlides() {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
+    let $slides = $('.mySlides');
+    $slides.hide();
     slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1 }
-    slides[slideIndex - 1].style.display = "block";
+    if (slideIndex > $slides.length) { slideIndex = 1; }
+    $slides.eq(slideIndex - 1).show();
     setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
+showSlides();
 
+// Option toggle with arrow rotation and image change
+$('.option').on('click', function () {
+    const targetId = $(this).data('target');
+    const $target = $('#' + targetId);
 
+    // Close all active descriptions
+    $('.desc-active').not($target).removeClass('desc-active');
 
+    // Change image source
+    $('#image-ctn').attr('src', 'resources/' + targetId + '.svg');
 
-document.querySelectorAll('.option').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const targetId = btn.getAttribute('data-target');
-        const target = document.getElementById(targetId);
-        console.log(targetId, target);
+    // Toggle current
+    $target.toggleClass('desc-active');
 
-        // close all
-        document.querySelectorAll('.desc-active').forEach(panel => {
-            if (panel.id !== targetId) panel.classList.remove('desc-active');
-        });
-        document.querySelectorAll('#image-ctn').forEach(img => {
-            img.src = `resources/${targetId}.svg`
-        });
+    // Reset all arrow rotations
+    $('.arrow').css('transform', 'rotate(0deg)');
 
-        // toggle current
-        target.classList.toggle('desc-active');
-
-        // rotate arrows
-        document.querySelectorAll(' .arrow').forEach(arrow => {
-            arrow.style.transform = 'rotate(0deg)';
-        });
-        if (target.classList.contains('desc-active')) {
-            btn.querySelector('.arrow').style.transform = 'rotate(180deg)';
-        }
-    });
+    // Rotate arrow of active
+    if ($target.hasClass('desc-active')) {
+        $(this).find('.arrow').css('transform', 'rotate(180deg)');
+    }
 });
 
-
-
-const toggle = document.getElementById('menu-toggle');
-const navLinks = document.getElementById('nav-links');
-
-toggle.addEventListener('click', () => {
-   
-    navLinks.classList.toggle('show');
+// Mobile menu toggle
+$('#menu-toggle').on('click', function () {
+    $('#nav-links').toggleClass('show');
 });
 
-// Optional: Close menu when clicking a link (for SPA UX)
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => navLinks.classList.remove('show'));
+// Close menu on link click
+$('.nav-links a').on('click', function () {
+    $('#nav-links').removeClass('show');
 });
