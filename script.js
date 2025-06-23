@@ -61,9 +61,7 @@ const toggle = document.getElementById('menu-toggle');
 const navLinks = document.getElementById('nav-links');
 
 toggle.addEventListener('click', () => {
-    if(window.scrollY<50){
-    window.scrollY=50;
-    }
+   
     navLinks.classList.toggle('show');
 });
 
