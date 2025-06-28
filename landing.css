@@ -7,7 +7,7 @@
     font-family: "Poppins", sans-serif;
     /* min-height: 120vh; */
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x:hidden;
 }
 
 
@@ -26,6 +26,8 @@
 
 body {
     color: var(--text-dark);
+    /* overflow-x: hidden ; */
+   
 
 }
 
@@ -180,7 +182,7 @@ nav.scrolled .nav-container {
 
     .nav-links.show {
         display: flex;
-        margin-top: 20px;
+        margin-top: 5px;
     }
 
     .nav-links li {
@@ -215,12 +217,17 @@ nav.scrolled .nav-container {
     display: flex;
     gap: 20px;
     flex-direction: column;
+    min-height: 720px;
 }
 
 .main-txt-head {
     font-size: 52px;
     font-weight: 600;
     color: var(--text-dark);
+}
+
+.main-txt > div{
+    padding: 15px;
 }
 
 .main-txt-button button {
@@ -306,17 +313,19 @@ td {
     border-collapse: collapse;
 }
 
-
-/* everything */
 .everything {
     padding: 50px 20px;
     text-align: center;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .everything-desc {
     max-width: 900px;
     margin: auto;
     margin-bottom: 10px;
+    text-align: justify;
+    width: 80%;
     font-size: 14px;
     color: var(--text-muted);
     line-height: 1.6;
@@ -326,10 +335,16 @@ td {
     height: 90vh;
     width: 100%;
     background-color: #b86bff5b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .business-trust {
     padding: 10px 30px;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .business-trust-head {
@@ -338,20 +353,26 @@ td {
 
 }
 
-/* custom-features.css */
-
 .feature-flex {
     padding: 25px;
     display: flex;
     gap: 5px;
+    overflow: hidden;
     width: 100%;
 
+}
+
+.feature-flex *{
+    overflow: visible;
+    height: fit-content;
 }
 
 .feature-flex-card {
     border-left: 1px solid gray;
     padding: 15px;
-    height: 250px;
+    
+    
+    max-height: 250px;
     width: 25%;
     display: flex;
     flex-direction: column;
@@ -375,18 +396,31 @@ td {
 .android {
     margin-top: 50px;
     background-color: var(--secondary);
-    min-height: 100vh;
+    
     min-width: 100vw;
     padding: 50px;
-    display: flex;
-    gap: 10px;
-    justify-content: space-around;
+    
 }
 
 .android>div {
-    width: 45%;
+    max-width: 1200px;
+    margin: auto;
 }
+.android-ctn{
+    
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.android-ctn > div{
+    width: 45%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+}
 .flex-col {
     display: flex;
     flex-direction: column;
@@ -510,6 +544,8 @@ td {
 .testimonial-customer {
     position: relative;
     overflow: visible;
+    max-width: 1200px;
+    margin: auto;
 
 }
 
@@ -674,6 +710,8 @@ footer .footer-container {
     gap: 10px;
     max-height: 450px;
     overflow: hidden;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -690,10 +728,14 @@ footer .footer-container {
 .complete-opt {
     width: 85%;
     margin-top: 10px;
-    padding: 15px;
+    padding: 0px;
     margin: auto;
 
     border-bottom: 1px solid var(--text-dark);
+}
+
+.complete-opt *{
+    scale: 0.9;
 }
 
 .image-ctn {
@@ -823,6 +865,8 @@ footer .footer-container {
     transition: background-color 0.6s ease;
 }
 
+
+
 /* Fading animation */
 .fade {
     animation-name: fade;
@@ -831,6 +875,24 @@ footer .footer-container {
 
 .complete-slideshow {
     display: none;
+}
+
+.iframe-box {
+    width: 100%;
+    height: 100%;
+    border: none;
+    margin: auto;
+   
+}
+
+iframe{
+
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 150px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes fade {
@@ -855,6 +917,8 @@ footer .footer-container {
         font-size: 30px;
     }
     .main-txt{
+        min-height: fit-content;
+        overflow: hidden;
         height: 80vh;
         justify-content: space-around;
         
@@ -891,9 +955,28 @@ footer .footer-container {
     }
 
     .feature-flex {
-        flex-direction: column;
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+     gap: 20px;
+    }
+    
+    .below-playstore {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+     gap: 20px;
+     width: 100%;
+    }
+    .below-playstore > div {
+        width: 100%;
+        max-width: 100px;
+        margin: auto;
+        justify-content: space-between;
+        align-items: start;
     }
 
+    
+
+    
     .feature-flex-card {
         border-left: 1px solid gray;
         padding: 15px;
@@ -902,14 +985,14 @@ footer .footer-container {
         display: flex;
         flex-direction: column;
         gap: 20px;
-    }
+    } 
 
-    .android {
+    .android >div {
         flex-direction: column;
         align-items: center;
     }
 
-    .android>div {
+    .android-ctn>div {
         width: 100%;
     }
 
@@ -960,6 +1043,7 @@ footer .footer-container {
 
     .option-ctn {
         overflow: visible;
+        padding: 2px 50px;
     }
 
     .option span {
@@ -977,6 +1061,8 @@ footer .footer-container {
 
     .image-ctn img {
         width: 60vw;
+        max-height: 150px;
+
     }
 
     .everything * {
@@ -985,8 +1071,9 @@ footer .footer-container {
 
     .everything {
         overflow: visible;
+        width: 100%;
         height: fit-content;
-        margin-bottom: 30%;
+        margin-bottom: 0%;
     }
 
     nav {
