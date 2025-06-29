@@ -962,12 +962,12 @@ footer .footer-container {
         justify-content: space-around;
         
     }
-
-    .quotes{
-        position: relative;
-        
-        z-index: 1;
-    }
+    .testimonial-customer .quotes {
+    position: absolute;
+    left: 20%;
+    top: 3%;
+       z-index: 1;
+}
     .quotes svg {
         width: 50px;
         height: 50px;
